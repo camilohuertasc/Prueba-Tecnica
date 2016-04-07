@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Cargar Archivo</title>
+</head>
+<body>
+	
+	<h1><div align = center>¡Ahora Puedes Cargar Tu Archivo!</div></h1>
+	
+	<p>Ahora intentaremos almacenar un archivo en el servicio Cloudant de Bluemix. Selecciona un archivo de tu PC</p>
+	
+	<p><div align = center>
+	<form action="" method="PUT" name="upload" enctype="application/json">
+		<input type="file" name="file" m/>
+	</form>
+	</div></p> 
+	
+	<p><div align = center>
+		<button onclick="pedir();">Cargar</button>
+		<!--<button onclick="envio();">Java</button>-->
+	</div></p>
+	
+	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type = "text/javascript" language = "javascript">
+
+		function pedir(){	
+
+			var settings = {
+				"async": true,
+				"crossDomain": true,
+				"url": "https://0ab5359e-3974-4e76-84ce-e6ab3448dd00-bluemix.cloudant.com/datos/d600cee17c26016e6a29f95aa5caf57d?callback=?",
+				"method": "GET",
+				"dataType":"jsonp",
+				"headers": {
+					"content-type": "application/json",
+					"cache-control": "no-cache",
+					"Access-Control-Allow-Origin": "*"
+				},
+				"processData": false,
+				"data": "{\n  \"_id\": \"d600cee17c26016e6a29f95aa5caf57d\",\n  \"_rev\": \"11-b9620b792ebc81c22fbce247209de82d\",\n  \"name\": \"camilo\",\n  \"pass\": \"112347\"\n}"
+			};
+
+			$.ajax(settings).done(function (response) {
+				console.log(response);
+				document.getElementById('mensaje').innerHTML ='UPS!! Lo sentimos de verdad :(. Esta página se encuentra en construcción por lo que por el momento no puedes cargar archivos. Lo que podemos hacer por el momento es mostrarte lo que se encuentra en el servidor. Te mostraremos el archivo JSON, en el cual se encuentra la información básica de un usuario.';
+				document.getElementById('status').innerHTML = JSON.stringify(response);
+				document.getElementById('mensaje2').innerHTML = 'En el podemos ver varios aspectos, tenemos un identificador único, el cual es asignado por la base de datos, un número de Revisión el cual va cambiando cada vez que realizamos una modificación, información del nombre, password y correo electrónico, todo esto está almacenado en la base de datos Cloudant y eso es lo que podremos almacenar en un futuro, junto a tus archivos.';
+				document.getElementById('mensaje3').innerHTML = 'Te agradecemos que utilices nuestros servicios. Espero estés interesado en ellos y nos contactemos pronto. Gracias!!';
+				document.getElementById('mensaje4').innerHTML = 'Camilo Andres Huertas Cuevas';
+				document.getElementById('mensaje5').innerHTML = 'Ingeniero Electrónico';
+				document.getElementById('mensaje6').innerHTML = 'Bogotá D.C.';
+			});
+		}
+		
+		function envio(){
+			var DataToSend = new Object();
+			DataToSend = {
+							_id:'d600cee17c26016e6a29f95aa5caf57d',
+							_rev:'14-660f4d861a67772f6f10206d0409d49e',
+			                Nombre : 'andres',
+			                Pass : '12345678',
+			                Mail:'camilo.huertas-c@hotmail.com'
+			             };
+
+			var settings = {
+				"async": true,
+				"cache": false,
+				"crossDomain": true,
+				"url": "https://0ab5359e-3974-4e76-84ce-e6ab3448dd00-bluemix.cloudant.com/datos/d600cee17c26016e6a29f95aa5caf57d?callback=?",
+				"method": "PUT",
+				"dataType":"json",
+				"type": "PUT",
+				"success": function (){alert('bien');},
+				"headers": {
+					//application/json
+					"content-type": "text/plain",
+					"cache-control": "no-cache"
+				},
+				"processData": false,
+				//"data":DataToSend
+				"data": "{\n  \"_id\": \"d600cee17c26016e6a29f95aa5caf57d\",\n  \"_rev\": \"12-48582ba5faf441bc7e8580dc7d712323\",\n  \"name\": \"andres\",\n  \"pass\": \"112347\"\n}"
+			};
+			
+			$.ajax(settings).done(function (response) {
+				console.log(response);
+				
+			});
+		}
+		
+		function envio1(){
+			var http = require("https");
+
+			var options = {
+			  "method": "PUT",
+			  "hostname": "0ab5359e-3974-4e76-84ce-e6ab3448dd00-bluemix.cloudant.com",
+			  "port": null,
+			  "path": "/datos/d600cee17c26016e6a29f95aa5caf57d",
+			  "headers": {
+			    "content-type": "application/json",
+			    "cache-control": "no-cache",
+			    "postman-token": "ef7dd7f8-8cf0-a493-e34a-327478aec3f0"
+			  }
+			};
+			
+			var req = http.request(options, function (res) {
+			  var chunks = [];
+			
+			  res.on("data", function (chunk) {
+			    chunks.push(chunk);
+			  });
+			
+			  res.on("end", function () {
+			    var body = Buffer.concat(chunks);
+			    console.log(body.toString());
+			  });
+			});
+			
+			req.write(JSON.stringify({ _id: '600cee17c26016e6a29f95aa5caf57d',
+			  _rev: '12-48582ba5faf441bc7e8580dc7d712323',
+			  name: 'camilo',
+			  pass: '112347' }));
+			req.end();
+		}
+		
+	</script>
+	<p><div id="mensaje">
+	</div></p>
+	<p><div id="status" align = center>
+	</div></p>
+	<p><div id="mensaje2">
+	</div></p>
+	<p><div id="mensaje3">
+	</div></p>
+	<p><div id="mensaje4" align = center>
+	</div></p>
+	<p><div id="mensaje5" align = center>
+	</div></p>
+	<p><div id="mensaje6" align = center>
+	</div></p>
+</body>
+</html>

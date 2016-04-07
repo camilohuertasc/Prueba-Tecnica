@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba Técnica CAHC</title>
+</head>
+<body>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+	
+	<h1><div align = center> Bienvenido a la prueba Técnica, Bluemix de IBM</div></h1>
+	<hr color = "blue" size = "3">
+    
+    <p><form>
+		Bienvenido, Me gustaría saber cómo te llamas <input type="text" ng-model="nombre">
+	</form></p>
+ 
+	<h2>Hola {{nombre}}</h2> 	
+ 
+    <p>EL crecimiento de las redes sociales se ha disparado en los últimos años, llegando solo Facebook a tener 1350 millones 
+    de usuarios registrados al 2014 repartidos por todo el globo. 
+    Estas redes sociales no solo están enfocadas para la interacción entre personas, las pequeñas medianas y grandes empresas 
+    las usan para dar a conocer sus servicios, quienes son, ofertas de empleo, etc., entre una parte de todo ese volumen de 
+    usuarios.</p>
+    
+    <div align = center>
+    <!-- Imagen tomada de https://www.google.com.co/search?q=pie+de+pagina+html&biw=1525&bih=734&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiSsdX6jvjLAhXBJR4KHV-oDCcQ_AUIBigB&dpr=0.9#tbm=isch&q=logo+de+facebook&imgrc=fTKCrFX9aTbCVM%3A-->
+    	<img src = "f.png">
+    <!-- Imagen tomada de https://www.google.com.co/search?q=pie+de+pagina+html&biw=1525&bih=734&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiSsdX6jvjLAhXBJR4KHV-oDCcQ_AUIBigB&dpr=0.9#tbm=isch&q=logo+de+linkedin&imgrc=eZhkN9NwNWP6vM%3A-->	
+    	<img src = "l.png">
+    <!-- Imagen tomada de https://www.google.com.co/search?q=pie+de+pagina+html&biw=1525&bih=734&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiSsdX6jvjLAhXBJR4KHV-oDCcQ_AUIBigB&dpr=0.9#tbm=isch&q=logo+de+google+%2B&imgrc=x2FIZO9M9NWVnM%3A-->	
+    	<img src = "g.png">
+    <!-- Imagen Tomada de https://www.google.com.co/search?q=pie+de+pagina+html&biw=1525&bih=734&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiSsdX6jvjLAhXBJR4KHV-oDCcQ_AUIBigB&dpr=0.9#tbm=isch&q=logo+de+instagram&imgrc=hh_oncclYW_JyM%3A-->	
+    	<img src = "i.png">
+    </div>
+    
+    
+    <p>Redes como Facebook, Linkedin, Google+, Instagram son solo una fracción de las redes 
+    sociales que existen en la actualidad. Ellas además de los servicios ya mencionados arriba, nos da la posibilidad de 
+    integrarlas con nuestras páginas Web, para que así los usuarios mediante un simple login en sus redes de preferencias 
+    (y una serie de permisos claro está) puedan dar información a la empresa sobre gustos, estudios realizados, correo 
+    electrónico, fechas de cumpleaños, etc., para que la compañía aproveche dicha información y pueda brindar un mejor 
+    servicio.</p>
+    
+    <p>La idea de esta página es dar a conocer cómo funciona esta integración, esta demostración la haremos con la red social 
+    Facebook. Al hacer login con tu cuenta en Facebook, serás re direccionado a una nueva página donde podrás cargar un archivo 
+    a uno de nuestros servidores.</p>
+    
+	<p>¡Anímate {{nombre}}! y dale clic al botón Login para probar esta nueva experiencia y oportunidad para tu empresa.</p>
+
+    <div align = center>
+    	<form action = "nuevaventana.html">
+    		<input type="submit" value="Login">
+    	</form>
+    </div> 
+</body>
+</html>

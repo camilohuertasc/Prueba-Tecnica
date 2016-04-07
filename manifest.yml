@@ -1,0 +1,7 @@
+---
+applications:
+- buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  host: cahc-p1
+  name: Prueba 1
+  memory: 64M
+  stack: cflinuxfs2
